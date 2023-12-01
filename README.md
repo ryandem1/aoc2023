@@ -4,3 +4,32 @@ Advent of Code 2023
 https://adventofcode.com/2023
 
 Using Go 1.21 Std Library
+
+## How to Run a Day's Solution
+To run a specific day's solution, follow these steps:
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ryandem1/aoc2023.git
+cd aoc2023
+```
+
+### Run a day with the Makefile
+
+```bash
+make dayX
+```
+Replace X with the day number you want to run.
+
+By default, the Makefile runs Part 1 with the full dataset. You can customize this by modifying the part and dataset variables in the Makefile.
+
+part: Specifies whether to run Part 1 or Part 2 of the day's puzzle.
+dataset: Refers to the dataset to use. Use 'example' for a small example provided in the problem statement, and 'full' for the full puzzle input.
+Example:
+
+```bash
+make day2 part=2 dataset=example
+```
+
+The output will display the day, part, and the solution.
