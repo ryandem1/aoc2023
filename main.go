@@ -18,14 +18,7 @@ func main() {
 	part := os.Args[2]
 	dataset := os.Args[3]
 
-	switch dataset {
-	case "example":
-		log.Println("Running with example dataset...")
-	case "full":
-		log.Println("Running with full dataset...")
-	default:
-		log.Fatalf("Invalid dataset: %s", dataset)
-	}
+	log.Printf("Running with dataset: %s", dataset)
 
 	inputPath := fmt.Sprintf("data/day%s%s.txt", day, dataset)
 
@@ -57,4 +50,12 @@ func main() {
 	log.Printf("Day %s Part %s Solution: %s", day, part, solution)
 	log.Printf("Execution Time: %s", elapsedTime)
 	log.Printf("Memory Used: %d bytes", endAlloc-startAlloc)
+
+	// Delete temp file if created
+	if _, err := os.Stat("temp.txt"); err == nil {
+		err = os.Remove("temp.txt")
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 }
