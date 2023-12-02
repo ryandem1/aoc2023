@@ -55,5 +55,38 @@ func Day1Part1(inputPath string) (string, error) {
 }
 
 func Day1Part2(inputPath string) (string, error) {
-	return inputPath, nil
+	// Consider your entire calibration document.
+	// Numbers are allowed to be spelled out this time.
+	// What is the sum of all the calibration values?
+	//
+	// Just going to modify the input file and use the first part
+	// solution as a black box
+	content, err := os.ReadFile(inputPath)
+	if err != nil {
+		return "", err
+	}
+
+	text := string(content)
+
+	numTexts := []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+
+	for i, numText := range numTexts {
+		var builder strings.Builder
+
+		// Replace the number, but also need to preserve the first and last letter
+		// of the line in case of overlap
+		builder.WriteByte(numText[0])
+		builder.WriteString(strconv.Itoa(i + 1))
+		builder.WriteByte(numText[len(numText)-1])
+
+		numWithChar := builder.String()
+		text = strings.Replace(text, numText, numWithChar, -1)
+	}
+
+	err = os.WriteFile("temp.txt", []byte(text), 0644)
+	if err != nil {
+		return "", err
+	}
+
+	return Day1Part1("temp.txt")
 }
