@@ -4,7 +4,6 @@
 package solutions
 
 import (
-	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -16,12 +15,12 @@ const (
 	byteNewline = 10
 )
 
-func Day1Part1(inputPath string) string {
+func Day1Part1(inputPath string) (string, error) {
 	// Consider your entire calibration document.
 	// What is the sum of all the calibration values?
 	input, err := os.ReadFile(inputPath)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 
 	var firstDigit byte
@@ -45,16 +44,16 @@ func Day1Part1(inputPath string) string {
 			calibrationValueString := strBuilder.String()
 			calibrationValue, err := strconv.Atoi(calibrationValueString)
 			if err != nil {
-				log.Fatal(err)
+				return "", err
 			}
 			sumOfCalibrationValues += calibrationValue
 			firstDigit = 0
 			lastDigit = 0
 		}
 	}
-	return strconv.Itoa(sumOfCalibrationValues)
+	return strconv.Itoa(sumOfCalibrationValues), nil
 }
 
-func Day1Part2(inputPath string) string {
-	return inputPath
+func Day1Part2(inputPath string) (string, error) {
+	return inputPath, nil
 }

@@ -5,6 +5,8 @@ import (
 	"github.com/ryandem1/aoc2023/solutions"
 	"log"
 	"os"
+	"runtime"
+	"time"
 )
 
 func main() {
@@ -18,9 +20,9 @@ func main() {
 
 	switch dataset {
 	case "example":
-		log.Println("Running with example dataset")
+		log.Println("Running with example dataset...")
 	case "full":
-		log.Println("Running with full dataset")
+		log.Println("Running with full dataset...")
 	default:
 		log.Fatalf("Invalid dataset: %s", dataset)
 	}
@@ -29,11 +31,30 @@ func main() {
 
 	funcName := fmt.Sprintf("Day%sPart%s", day, part)
 
-	dayFunc := map[string]func(string) string{
+	dayFunc := map[string]func(string) (string, error){
 		"Day1Part1": solutions.Day1Part1,
 		"Day1Part2": solutions.Day1Part2,
 	}[funcName]
 
-	solution := dayFunc(inputPath)
+	if dayFunc == nil {
+		log.Fatalf("Unrecognized day/part: %s", funcName)
+	}
+
+	var memStats runtime.MemStats
+	runtime.ReadMemStats(&memStats)
+	startAlloc := memStats.Alloc
+
+	startTime := time.Now()
+	solution, err := dayFunc(inputPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	elapsedTime := time.Since(startTime)
+
+	runtime.ReadMemStats(&memStats)
+	endAlloc := memStats.Alloc
+
 	log.Printf("Day %s Part %s Solution: %s", day, part, solution)
+	log.Printf("Execution Time: %s", elapsedTime)
+	log.Printf("Memory Used: %d bytes", endAlloc-startAlloc)
 }
