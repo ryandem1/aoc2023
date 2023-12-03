@@ -3,7 +3,11 @@ Advent of Code 2023
 
 https://adventofcode.com/2023
 
-Using Go 1.21 Std Library
+Using Go 1.21 Std Library.
+
+I don't really have many goals for this except to use as efficient of an algorithm as I can come up with
+in a reasonable time with only the standard library. I am trying to keep each solution self-contained, but
+if I am able to use a previous solution as a black-box with input/output modifications, I will do that.
 
 ## How to Run a Day's Solution
 To run a specific day's solution, follow these steps:
