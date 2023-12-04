@@ -31,6 +31,8 @@ func main() {
 		"Day2Part2": solutions.Day2Part2,
 		"Day3Part1": solutions.Day3Part1,
 		"Day3Part2": solutions.Day3Part2,
+		"Day4Part1": solutions.Day4Part1,
+		"Day4Part2": solutions.Day4Part2,
 	}[funcName]
 
 	if dayFunc == nil {
