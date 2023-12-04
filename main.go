@@ -53,7 +53,7 @@ func main() {
 
 	log.Printf("Day %s Part %s Solution: %s", day, part, solution)
 	log.Printf("Execution Time: %s", elapsedTime)
-	log.Printf("Memory Used: %d bytes", endAlloc-startAlloc)
+	log.Printf("Memory Used: %d KB", (endAlloc-startAlloc)/1024)
 
 	// Delete temp file if created
 	if _, err := os.Stat("temp.txt"); err == nil {
