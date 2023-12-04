@@ -9,15 +9,16 @@ import (
 	"strings"
 )
 
-const (
-	byte0       = 48
-	byte9       = 57
-	byteNewline = 10
-)
-
 func Day1Part1(inputPath string) (string, error) {
 	// Consider your entire calibration document.
 	// What is the sum of all the calibration values?
+
+	const (
+		byte0       = 48
+		byte9       = 57
+		byteNewline = 10
+	)
+
 	input, err := os.ReadFile(inputPath)
 	if err != nil {
 		return "", err
