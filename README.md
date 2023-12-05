@@ -9,6 +9,9 @@ I don't really have many goals for this except to use as efficient of an algorit
 in a reasonable time with only the standard library. I am trying to keep each solution self-contained, but
 if I am able to use a previous solution as a black-box with input/output modifications, I will do that.
 
+Will there be a lot of code duplication? potentially, but that is just how the cookie crumbles today. I actually prefer
+to keep solutions as separate as possible (unless I can use an entire solution as a black-box)
+
 ## How to Run a Day's Solution
 To run a specific day's solution, follow these steps:
 
