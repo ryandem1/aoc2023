@@ -1,5 +1,6 @@
 // Day 4: Scratchcards
 // https://adventofcode.com/2023/day/4
+// I am not 100% proud of this lol
 
 package solutions
 
@@ -117,7 +118,6 @@ func Day4Part2(inputPath string) (string, error) {
 	cardNumbers := make([]int, numbersOnCard)
 	countOfCard := make(map[int]int)
 
-	// Infinite loop to read and parse each line
 	for {
 		if isExampleFile {
 			_, err = fmt.Fscanf(file, "Card %d: %d %d %d %d %d | %d %d %d %d %d %d %d %d\n",
