@@ -80,5 +80,34 @@ func Day6Part1(inputPath string) (string, error) {
 }
 
 func Day6Part2(inputPath string) (string, error) {
-	return "", nil
+	// How many ways can you beat the record in this one much longer race?
+	fileLines := ""
+
+	file, err := os.Open(inputPath)
+	if err != nil {
+		return "", err
+	}
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		cleanedLine := ""
+		line := scanner.Text()
+		splitLine := strings.Split(line, ":")
+
+		cleanedLine += splitLine[0] + ": "
+		cleanedLine += strings.ReplaceAll(splitLine[1], " ", "")
+		fileLines += cleanedLine + "\n"
+	}
+
+	err = scanner.Err()
+	if err != nil {
+		return "", nil
+	}
+
+	err = os.WriteFile("temp.txt", []byte(fileLines), 0644)
+	if err != nil {
+		return "", err
+	}
+
+	return Day6Part1("temp.txt")
 }
