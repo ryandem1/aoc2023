@@ -13,13 +13,14 @@ import (
 func Day6Part1(inputPath string) (string, error) {
 	// Determine the number of ways you could beat the record in each race.
 	// What do you get if you multiply these numbers together?
+	multOfAllPossibleWays := 1
+	var times []int
+	var distances []int
 
 	file, err := os.Open(inputPath)
 	if err != nil {
 		return "", err
 	}
-	var times []int
-	var distances []int
 
 	scanner := bufio.NewScanner(file)
 
@@ -45,11 +46,37 @@ func Day6Part1(inputPath string) (string, error) {
 		lineNum++
 	}
 
+	for i := 0; i < len(times); i++ {
+		totalTime := times[i]
+		goalDist := distances[i]
+
+		lBound, uBound := -1, -1
+		for chargeTime := 0; chargeTime < totalTime; chargeTime++ {
+			dist := chargeTime * (totalTime - chargeTime)
+			if dist > goalDist {
+				lBound = chargeTime - 1
+				break
+			}
+		}
+
+		for chargeTime := totalTime; chargeTime > 0; chargeTime-- {
+			dist := chargeTime * (totalTime - chargeTime)
+			if dist > goalDist {
+				uBound = chargeTime
+				break
+			}
+		}
+
+		possibleWays := uBound - lBound
+		multOfAllPossibleWays *= possibleWays
+	}
+
 	err = scanner.Err()
 	if err != nil {
 		return "", err
 	}
-	return "", nil
+
+	return strconv.Itoa(multOfAllPossibleWays), nil
 }
 
 func Day6Part2(inputPath string) (string, error) {
