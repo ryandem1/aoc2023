@@ -43,3 +43,11 @@ make day2 part=2 dataset=example
 ```
 
 The output will display the day, part, and the solution.
+
+
+### Downloading Datasets
+
+On the [AOC about page](https://adventofcode.com/2023/about), it states:
+> If you're posting a code repository somewhere, please don't include parts of Advent of Code like the puzzle text or your inputs.
+
+So, download the input and place it in a ``.txt`` file in the ``data`` directory
