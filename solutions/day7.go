@@ -12,9 +12,10 @@ import (
 	"strings"
 )
 
-func Day7Part1(inputPath string) (string, error) {
+func Day7Part1(args ...string) (string, error) {
 	// Find the rank of every hand in your set.
 	// What are the total winnings?
+	inputPath := args[0]
 	totalWinnings := 0
 	handsByScore := make(map[int][]string)
 	cardScores := map[rune]int{
@@ -170,9 +171,10 @@ func Day7Part1(inputPath string) (string, error) {
 	return strconv.Itoa(totalWinnings), nil
 }
 
-func Day7Part2(inputPath string) (string, error) {
+func Day7Part2(args ...string) (string, error) {
 	// Using the new joker rule, find the rank of every hand in your set.
 	// What are the new total winnings?
+	inputPath := args[0]
 	totalWinnings := 0
 	handsByScore := make(map[int][]string)
 	cardScores := map[rune]int{

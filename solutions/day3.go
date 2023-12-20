@@ -12,8 +12,9 @@ import (
 	"unicode"
 )
 
-func Day3Part1(inputPath string) (string, error) {
+func Day3Part1(args ...string) (string, error) {
 	// What is the sum of all the part numbers in the engine schematic?
+	inputPath := args[0]
 	sumOfPartNumbers := 0
 
 	file, err := os.Open(inputPath)
@@ -124,8 +125,9 @@ func Day3Part1(inputPath string) (string, error) {
 	return strconv.Itoa(sumOfPartNumbers), nil
 }
 
-func Day3Part2(inputPath string) (string, error) {
+func Day3Part2(args ...string) (string, error) {
 	// What is the sum of all the gear ratios in your engine schematic?
+	inputPath := args[0]
 	sumOfGearRatios := 0
 
 	file, err := os.Open(inputPath)

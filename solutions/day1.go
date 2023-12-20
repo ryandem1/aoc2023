@@ -9,9 +9,10 @@ import (
 	"strings"
 )
 
-func Day1Part1(inputPath string) (string, error) {
+func Day1Part1(args ...string) (string, error) {
 	// Consider your entire calibration document.
 	// What is the sum of all the calibration values?
+	inputPath := args[0]
 
 	const (
 		byte0       = 48
@@ -55,13 +56,15 @@ func Day1Part1(inputPath string) (string, error) {
 	return strconv.Itoa(sumOfCalibrationValues), nil
 }
 
-func Day1Part2(inputPath string) (string, error) {
+func Day1Part2(args ...string) (string, error) {
 	// Consider your entire calibration document.
 	// Numbers are allowed to be spelled out this time.
 	// What is the sum of all the calibration values?
 	//
 	// Just going to modify the input file and use the first part
 	// solution as a black box
+	inputPath := args[0]
+
 	content, err := os.ReadFile(inputPath)
 	if err != nil {
 		return "", err

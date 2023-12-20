@@ -8,17 +8,25 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"slices"
 	"strconv"
 )
 
-func Day8Part1(inputPath string) (string, error) {
+func Day8Part1(args ...string) (string, error) {
 	// Starting at AAA, follow the left/right instructions.
 	// How many steps are required to reach ZZZ?
 
+	inputPath := args[0]
+
+	var currNode string
+	if len(args) > 1 {
+		currNode = args[1]
+	}
+
 	stepsRequired := 0
 	var instructions string
-	currNode := "AAA"
-	targetNode := "ZZZ"
+	currNode = "AAA"
+	targetNodes := []string{"ZZZ"}
 	network := make(map[string]string) // network graph as adjacency list (sort of)
 
 	file, err := os.Open(inputPath)
@@ -66,7 +74,7 @@ func Day8Part1(inputPath string) (string, error) {
 	}
 
 	i := 0
-	for currNode != targetNode {
+	for !slices.Contains(targetNodes, currNode) {
 		stepsRequired++
 		inst := instructions[i]
 
@@ -80,6 +88,8 @@ func Day8Part1(inputPath string) (string, error) {
 	return strconv.Itoa(stepsRequired), nil
 }
 
-func Day8Part2(inputPath string) (string, error) {
-	return inputPath, nil
+func Day8Part2(args ...string) (string, error) {
+	// Simultaneously start on every node that ends with A.
+	// How many steps does it take before you're only on nodes that end with Z?
+	return args[0], nil
 }

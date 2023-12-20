@@ -24,7 +24,7 @@ func main() {
 
 	funcName := fmt.Sprintf("Day%sPart%s", day, part)
 
-	dayFunc := map[string]func(string) (string, error){
+	dayFunc := map[string]func(args ...string) (string, error){
 		"Day1Part1": solutions.Day1Part1,
 		"Day1Part2": solutions.Day1Part2,
 		"Day2Part1": solutions.Day2Part1,

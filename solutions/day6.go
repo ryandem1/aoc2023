@@ -10,9 +10,10 @@ import (
 	"strings"
 )
 
-func Day6Part1(inputPath string) (string, error) {
+func Day6Part1(args ...string) (string, error) {
 	// Determine the number of ways you could beat the record in each race.
 	// What do you get if you multiply these numbers together?
+	inputPath := args[0]
 	multOfAllPossibleWays := 1
 	var times []int
 	var distances []int
@@ -79,8 +80,9 @@ func Day6Part1(inputPath string) (string, error) {
 	return strconv.Itoa(multOfAllPossibleWays), nil
 }
 
-func Day6Part2(inputPath string) (string, error) {
+func Day6Part2(args ...string) (string, error) {
 	// How many ways can you beat the record in this one much longer race?
+	inputPath := args[0]
 	fileLines := ""
 
 	file, err := os.Open(inputPath)

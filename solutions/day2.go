@@ -12,10 +12,12 @@ import (
 	"unicode"
 )
 
-func Day2Part1(inputPath string) (string, error) {
+func Day2Part1(args ...string) (string, error) {
 	// Determine which games would have been possible if the bag had been
 	// loaded with only 12 red cubes, 13 green cubes, and 14 blue cubes.
 	// What is the sum of the IDs of those games?
+	inputPath := args[0]
+
 	cubeCapacityByColor := map[string]int{
 		"red":   12,
 		"green": 13,
@@ -112,9 +114,10 @@ func Day2Part1(inputPath string) (string, error) {
 	return strconv.Itoa(sumPossibleGameIDs), nil
 }
 
-func Day2Part2(inputPath string) (string, error) {
+func Day2Part2(args ...string) (string, error) {
 	// For each game, find the minimum set of cubes that must have been present.
 	// What is the sum of the power of these sets?
+	inputPath := args[0]
 	sumOfSquaresOfGames := 0
 
 	file, err := os.Open(inputPath)

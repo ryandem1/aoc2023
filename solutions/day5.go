@@ -10,8 +10,9 @@ import (
 	"strings"
 )
 
-func Day5Part1(inputPath string) (string, error) {
+func Day5Part1(args ...string) (string, error) {
 	// What is the lowest location number that corresponds to any of the initial seed numbers?
+	inputPath := args[0]
 	lowestLocationNumber := -1
 
 	seedToSoil := "seed-to-soil"
@@ -123,8 +124,9 @@ func Day5Part1(inputPath string) (string, error) {
 	return strconv.Itoa(lowestLocationNumber), nil
 }
 
-func Day5Part2(inputPath string) (string, error) {
+func Day5Part2(args ...string) (string, error) {
 	// What is the lowest location number that corresponds to any of the initial seed numbers?
+	inputPath := args[0]
 	lowestLocationNumber := -1
 
 	seedToSoil := "seed-to-soil"

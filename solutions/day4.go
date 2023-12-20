@@ -14,9 +14,10 @@ import (
 	"strings"
 )
 
-func Day4Part1(inputPath string) (string, error) {
+func Day4Part1(args ...string) (string, error) {
 	// Take a seat in the large pile of colorful cards.
 	// How many points are they worth in total?
+	inputPath := args[0]
 	totalPoints := 0
 
 	file, err := os.Open(inputPath)
@@ -88,9 +89,10 @@ func Day4Part1(inputPath string) (string, error) {
 	return strconv.Itoa(totalPoints), nil
 }
 
-func Day4Part2(inputPath string) (string, error) {
+func Day4Part2(args ...string) (string, error) {
 	// Including the original set of scratchcards,
 	// How many total scratchcards do you end up with?
+	inputPath := args[0]
 	totalCards := 0
 
 	file, err := os.Open(inputPath)
