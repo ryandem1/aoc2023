@@ -86,5 +86,5 @@ func Day8Part1(inputPath string) (string, error) {
 }
 
 func Day8Part2(inputPath string) (string, error) {
-	return "", nil
+	return inputPath, nil
 }
