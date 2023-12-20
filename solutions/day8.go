@@ -17,10 +17,9 @@ func Day8Part1(inputPath string) (string, error) {
 
 	stepsRequired := 0
 	var instructions string
-	var currNode string
+	currNode := "AAA"
 	targetNode := "ZZZ"
-	network := make(map[string][]string) // network graph as adjacency list
-	instToIdx := map[uint8]int{'L': 0, 'R': 1}
+	network := make(map[string]string) // network graph as adjacency list (sort of)
 
 	file, err := os.Open(inputPath)
 	if err != nil {
@@ -53,11 +52,8 @@ func Day8Part1(inputPath string) (string, error) {
 			return "", errors.New("did not fully parse network")
 		}
 
-		network[source] = []string{sink1, sink2}
-
-		if currNode == "" {
-			currNode = source // currNode has to initialize at the first source node
-		}
+		network[source+"L"] = sink1
+		network[source+"R"] = sink2
 	}
 	err = scanner.Err()
 	if err != nil {
@@ -73,9 +69,8 @@ func Day8Part1(inputPath string) (string, error) {
 	for currNode != targetNode {
 		stepsRequired++
 		inst := instructions[i]
-		idx := instToIdx[inst]
 
-		currNode = network[currNode][idx]
+		currNode = network[currNode+string(inst)]
 
 		i++
 		if i >= len(instructions) {
