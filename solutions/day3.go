@@ -13,7 +13,6 @@ import (
 )
 
 func Day3Part1(args ...string) (string, error) {
-	// What is the sum of all the part numbers in the engine schematic?
 	inputPath := args[0]
 	sumOfPartNumbers := 0
 
@@ -126,7 +125,6 @@ func Day3Part1(args ...string) (string, error) {
 }
 
 func Day3Part2(args ...string) (string, error) {
-	// What is the sum of all the gear ratios in your engine schematic?
 	inputPath := args[0]
 	sumOfGearRatios := 0
 

@@ -14,9 +14,6 @@ import (
 )
 
 func Day8Part1(args ...string) (string, error) {
-	// Starting at AAA, follow the left/right instructions.
-	// How many steps are required to reach ZZZ?
-
 	inputPath := args[0]
 
 	var currNode string
@@ -97,8 +94,6 @@ func Day8Part1(args ...string) (string, error) {
 }
 
 func Day8Part2(args ...string) (string, error) {
-	// Simultaneously start on every node that ends with A.
-	// How many steps does it take before you're only on nodes that end with Z?
 	var stepsRequired *big.Int
 	inputPath := args[0]
 
