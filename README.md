@@ -12,6 +12,9 @@ if I am able to use a previous solution as a black-box with input/output modific
 Will there be a lot of code duplication? potentially, but that is just how the cookie crumbles today. I actually prefer
 to keep solutions as separate as possible (unless I can use an entire solution as a black-box)
 
+Every day's input is just an input path. Some days may take optional positional arguments, but that is just to be used 
+for black-box modification of certain variables. The overall solution will still only require an input path.
+
 ## How to Run a Day's Solution
 To run a specific day's solution, follow these steps:
 
